@@ -1,0 +1,7 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^(\d+)/(\d+) index.php?guild=$1&user=$2 [QSA,L]
+
+RewriteRule ^(\d+)(/)? index.php?guild=$1 [QSA,L]
+

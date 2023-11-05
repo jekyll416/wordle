@@ -1,6 +1,6 @@
 <?php ini_set("display_errors",true);?><html>
 	<head>
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="/wordle/styles.css">
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</head>
 	<body>

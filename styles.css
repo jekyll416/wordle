@@ -1,0 +1,184 @@
+			/* Light theme colors */
+			:root {
+			  --color-tone-1: #000000;
+			  --color-tone-2: #787c7e;
+			  --color-tone-3: #878a8c;
+			  --color-tone-4: #d3d6da;
+			  --color-tone-5: #edeff1;
+			  --color-tone-6: #f6f7f8;
+			  --color-tone-7: #ffffff;
+			  --color-tone-8: #121212;
+			  --color-tone-9: #dfdfdf;
+			  --color-tone-10: #000000;
+			  --color-tone-11: #787c7e;
+			  --color-tone-12: #363636;
+			  --color-nav-hover: #f4f4f4;
+			  --opacity-50: rgba(255, 255, 255, 0.5);
+			  --error-background: #e3e3e1;
+			  --icon-disabled: #a6a6a6;
+			  --link-hover:#800;
+			}
+			
+			/* Dark Theme Colors */
+			@media (prefers-color-scheme: dark) {
+				:root{
+			  --color-tone-1: #ffffff;
+			  --color-tone-2: #818384;
+			  --color-tone-3: #565758;
+			  --color-tone-4: #3a3a3c;
+			  --color-tone-5: #272729;
+			  --color-tone-6: #1a1a1b;
+			  --color-tone-7: #121213;
+			  --color-tone-8: #ffffff;
+			  --color-tone-9: #424242;
+			  --color-tone-10: #dfdfdf;
+			  --color-tone-11: #dfdfdf;
+			  --color-tone-12: #dfdfdf;
+			  --color-nav-hover: #2f2f31;
+			  --opacity-50: rgba(0, 0, 0, 0.5);
+			  --error-background: var(--color-tone-7);
+			  --icon-disabled: #59595a;
+			  --link-hover: #f00;
+			  }
+			 } 
+			  
+			:root, .dark {
+				  --color-background: var(--color-tone-7);
+			}
+				
+			body{
+				 background-color: var(--color-background);
+			}
+			*{
+				font-family: Arial, Helvetica, sans-serif;
+				box-sizing: border-box;
+			}
+			.row{
+				display:flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: .5rem 1rem;
+				border-bottom:1px solid var(--color-tone-5);;
+				flex-wrap: wrap;
+				
+			}
+			.row:last-child{
+				margin-bottom:0px;
+			}
+			.avatar{
+				max-width:3em;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			.solution{
+				white-space: pre;
+				line-height: 1.25rem;
+			}
+			.row:nth-child(even){
+				background-color:var(--color-tone-9);
+			}
+			.card{
+				background-color:var(--color-tone-5);
+				border-radius: .5rem;
+				border:1px solid var(--color-tone-5);
+/* 				box-shadow: 0 -3px 10px 0 var(--color-tone-11); */
+				color:var(--color-tone-12);
+				overflow: hidden;
+			}
+			.card.hero
+			{
+				grid-column:1/-1;
+			}
+			.hero h1
+			{
+				display:flex;
+				align-items:center; 
+				justify-content:space-evenly;
+			}
+			.card a:link, .card a:visited{
+				color:var(--color-tone-12);
+				text-decoration: none;
+			}
+			.card a:hover{
+				color:var(--link-hover);
+				font-weight: bold;
+			}
+			.card-title{
+				font-weight: bold;
+				padding:.5rem;
+			}
+			.container
+			{
+				margin: auto;
+				max-width:1000px;
+				display:grid;
+				gap:1rem;
+				grid-template-columns:repeat(auto-fit, minmax(30ch, 1fr));
+			}
+			.emots{
+				margin-top:.5rem;
+				width:100%;
+				font-size:.75rem;
+				text-decoration: none !important;
+			}
+			a:link .emots,a:visited .emots{
+				text-decoration: none;
+			}
+			svg{
+				background-color:var(--color-tone-5);
+				max-width: 100%;
+				
+			}
+			text
+			{
+				text-anchor:middle;
+				fill:var(--color-tone-12);
+			}
+			text.label
+			{
+				text-anchor:end;
+				font-size:1.75rem;
+			}
+			
+			line
+			{
+				stroke:var(--color-tone-12);;
+			}
+			rect
+			{
+				fill:rgba(100,100,100,.5);
+			}
+			.breadcrumb
+			{
+				background-color:var(--color-tone-5);
+				border-radius: .5rem;
+				padding:.5rem 1rem;
+				grid-column: 1/-1;
+				font-size:.8rem;
+				color:var(--color-tone-12);
+			}
+			.breadcrumb a:link, .breadcrumb a:visited{
+				color:var(--color-tone-12);
+				text-decoration: none;
+			}
+			.breadcrumb a:hover, .breadcrumb a:focus{
+				text-decoration: underline;
+			}
+			div.puzzle{
+				line-height: 1.125rem;
+				white-space: pre;
+				font-family: arial, sans-serif;
+				margin: 0px auto;
+			}
+			.card.puzzles{
+				display:grid;
+				grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));
+				gap:.75rem;
+				padding:1rem;
+			}
+			span.label{
+				padding-top: .25rem;
+				font-size:.85rem;
+				font-variant: small-caps;
+				display: inline-block;
+			}

@@ -148,29 +148,34 @@
 				max-width: 100%;
 				background-color:hsla(0, 0%, 100%, 0);
 			}
-			.chart text
+			.chart text, .myChart text
 			{
-				text-anchor:middle;
+/* 				text-anchor:middle; */
 				fill:var(--color-tone-12);
 				
 			}
+			.chart text.label{
+				text-anchor:end;
+			}
 			text.label
 			{
-				text-anchor:end;
+/* 				text-anchor:end; */
 				font-size:1.75rem;
 				fill:var(--color-tone-12);
 				fill:var(--chart-text);
 			}
 			
-			.chart line
+			.chart line, .myChart line, g.tick, .myChart g.path
 			{
 				stroke:var(--color-tone-12);
 				stroke:var(--chart-line);
+				fill:var(--chart-line);
 			}
-			.chart rect
+			.chart rect, .myChart rect
 			{
 				fill:rgba(100,100,100,.5);
 				fill:var(--chart-color);
+				filter: drop-shadow(0px 1px 4px rgba(0,0,0,.4));
 			}
 			.breadcrumb
 			{
@@ -239,4 +244,8 @@
 				background-position: right bottom;
 				opacity: .2;
 				
+			}
+			.myChart text.label
+			{
+				font-size:1rem;
 			}

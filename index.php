@@ -2,6 +2,8 @@
 	<head>
 		<link rel="stylesheet" href="/wordle/assets/styles.css">
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
 		<div class="container"><?php 
@@ -49,14 +51,24 @@
 			{
 				$guesses[$row['score']]=$row['count'];
 			}
-		} ?>
+		}
+		if(!empty($guesses))
+		{
+			foreach($guesses as $score=>$amount)
+			{
+				$guessObj[]=array("score"=>$score, "count"=>$amount);
+			}
+		}
+		 ?>
 		<div class="card">
 		<?php 
 			include("chart.php");
 			$chart = new Chart($guesses);
-			$chart->draw();
-			
+			//$chart->draw();
+				echo "<script>data=".json_encode($guessObj,JSON_PRETTY_PRINT).";
+			console.log(data);</script>";
 		 ?>
+		 <svg class="myChart" style="width:100%; aspect-ratio:1/1;"></svg>
 		</div> 
 		<div class="card">
 			<?php
@@ -173,16 +185,24 @@
 	
 	$guesses=array("1"=>0,"2"=>0,"3"=>0,"4"=>0,"5"=>0,"6"=>0, "X"=>0);
 
+
 	$sql="Select score, Count(*) as count from games group by score order by score";
 	if($qry=$db->query($sql)){
 		while($row = $qry->fetch_assoc())
 		{
 			$guesses[$row['score']]=$row['count'];
+			
 		}
 	}else{
 		echo mysqli_error($db);
 	}
-
+	if(!empty($guesses))
+	{
+		foreach($guesses as $score=>$amount)
+		{
+			$guessObj[]=array("score"=>$score, "count"=>$amount);
+		}
+	}
 	?>
 	
 <!--
@@ -193,6 +213,7 @@
 	<script>
   const ctx = document.getElementById('myChart');
 
+/*
   new Chart(ctx, {
     type: 'bar',
     data: {
@@ -230,13 +251,19 @@
       	}
     }
   });
+*/
 </script>
+
 		<div class="card">
 		<?php include("chart.php");
 			$chart = new Chart($guesses);
 			
-			$chart->draw();
+		//	$chart->draw();
+			
+			echo "<script>data=".json_encode($guessObj,JSON_PRETTY_PRINT).";
+			console.log(data);</script>";
 			?>
+			<svg class="myChart" style="width:100%; aspect-ratio:1/1;"></svg>
 		</div>
 				<?php } ?>
 		
@@ -245,4 +272,5 @@
 
 		
 		</body>
+		<script src="/wordle/assets/chart.js"></script>
 </html>

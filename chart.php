@@ -37,21 +37,21 @@
 		{
 			
 			$max = max($this->data);
-			$min_width = 40;
+			$min_width = 30;
 			$unit_width = ($this->width -$min_width - ($this->margin_left+$this->margin_right))/$max;
 			$values = array_values($this->data);
 			
 			for($i = 0; $i<sizeof($this->data); $i++)
 			{
-				echo '<rect x="'.$this->margin_left.'" y="'.($this->margin_top + $i*$this->cell_height+($this->cell_height*.15)).'" width="'.(($values[$i])*$unit_width+$min_width).'" height="'.($this->cell_height*.7).'">
-				
-				
-				</rect><text class="label" x="'.(($values[$i])*$unit_width+$min_width+$this->margin_left-6).'" y="'.($this->margin_top + $i*$this->cell_height+10+.5*$this->cell_height).'">'.$values[$i].' </text>';
+				if($values[$i]){
+					echo '<rect x="'.($this->margin_left+1).'" y="'.($this->margin_top + $i*$this->cell_height+($this->cell_height*.15)).'" width="'.(($values[$i])*$unit_width+$min_width).'" height="'.($this->cell_height*.7).'">
+						</rect>';}
+				echo '<text class="label" x="'.(($values[$i])*$unit_width+$min_width+$this->margin_left-6).'" y="'.($this->margin_top + $i*$this->cell_height+10+.5*$this->cell_height).'">'.$values[$i].' </text>';
 			}
 		}
 		function draw()
 		{
-			echo "<svg viewbox=\"0 0 ".$this->width." ".$this->height."\" width=\"100%\">\n";
+			echo "<svg viewbox=\"0 0 ".$this->width." ".$this->height."\" width=\"100%\" class=\"chart\">\n";
 			$this->drawGrid();
 			$this->drawGraph();
 			echo "</svg>";

@@ -1,6 +1,6 @@
 <?php ini_set("display_errors",true);?><html>
 	<head>
-		<link rel="stylesheet" href="/wordle/styles.css">
+		<link rel="stylesheet" href="/wordle/assets/styles.css">
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</head>
 	<body>
@@ -103,10 +103,10 @@
 */
 		
 		if(!empty($solutions)){
-			echo "<div class=\"card puzzles\" style=\"grid-column:1/-1\">";
+			echo "<div class=\"puzzles\" style=\"grid-column:1/-1\">";
 			foreach($solutions as $game_number=>$solution)
 			{
- 				echo "<div class=\"puzzle\">".$game_number."\n".$solution."</div>";
+ 				echo "<div class=\"card puzzle\"><div class=\"card-title\">".$game_number."</div>".$solution."</div>";
 			}
 			echo "</div>";
 		}
@@ -158,7 +158,13 @@
 	order by ea.id Desc limit 8";
 	$qry=$db->query($sql);
 	echo mysqli_error($db);
-	echo "<div class=\"card\"><div class=\"card-title\">Recent Achievements</div>";
+	echo "<div class=\"card achievements\"><div class=\"card-title\">Recent Achievements</div>";
+	
+//	echo file_get_contents("assets/badge.svg");
+	?>
+
+
+<?php
 	while($row = $qry->fetch_assoc())
 	{
 		echo "<div class=\"row\"><div>".$row['username']."</div><div class=\"solution\">".$row['achievement_name']."</div></div>";

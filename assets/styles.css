@@ -102,6 +102,7 @@
 				overflow: hidden;
 				background-color:hsla(0, 0%, 100%, 0.15);
 				backdrop-filter:blur(30px);
+				box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 			}
 			.card.hero
 			{
@@ -181,6 +182,8 @@
 				color:var(--color-tone-12);
 				background-color: hsla(0, 0%, 100%, 0.15);
 				backdrop-filter:blur(30px);
+				
+				box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 			}
 			.breadcrumb a:link, .breadcrumb a:visited{
 				color:var(--color-tone-12);
